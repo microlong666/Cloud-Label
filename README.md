@@ -124,9 +124,9 @@ erupt:
 
 **请修改上述数据源配置**
 
-4. 直接运行 Spring Boot 应用，数据表和数据项将由 Hibernate 自动注入
+4. 同步 Maven 依赖后，直接运行 Spring Boot 应用，数据表和数据项将由 Hibernate 自动注入
 
-5. 打开浏览器，[http://localhost:8888](http://localhost:8888)
+5. 打开浏览器，[http://localhost:8888](http://localhost:8888)，初始用户名和密码均为 `erupt`
 
 ## 部署方法 | Deploy
 
