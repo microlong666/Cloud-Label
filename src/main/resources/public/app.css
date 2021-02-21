@@ -1,0 +1,18 @@
+/*自定义样式*/
+.global-footer__copyright {
+    display: none;
+}
+
+.header-logo-text.ng-star-inserted {
+    font-size: 1.4em;
+}
+
+@media (max-width: 767px) {
+    .header-logo-text.ng-star-inserted {
+        display: none;
+    }
+}
+
+.title {
+    font-family: Courier New, Menlo, Monaco, Consolas, monospace !important
+}
