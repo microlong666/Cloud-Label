@@ -126,7 +126,9 @@ erupt:
 
 4. 同步 Maven 依赖后，直接运行 Spring Boot 应用，数据表和数据项将由 Hibernate 自动注入
 
-5. 打开浏览器，[http://localhost:8888](http://localhost:8888)，初始用户名和密码均为 `erupt`
+5. 需要手动添加相关菜单项，提前导入项目根目录下的 `cloud_label.sql` 脚本
+
+6. 打开浏览器，[http://localhost:8888](http://localhost:8888)，初始用户名和密码均为 `erupt`
 
 ## 部署方法 | Deploy
 
