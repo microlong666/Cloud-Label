@@ -74,6 +74,32 @@ public class CommodityList extends HyperModel {
     )
     private String picture;
 
+    @EruptField(
+            views = @View(
+                    title = "商品名称", sortable = true
+            ),
+            edit = @Edit(
+                    title = "商品名称",
+                    type = EditType.INPUT, notNull = true,
+                    inputType = @InputType,
+                    search = @Search(vague = true)
+            )
+    )
+    private String commodityName;
+
+    @EruptField(
+            views = @View(
+                    title = "品牌", sortable = true
+            ),
+            edit = @Edit(
+                    title = "品牌",
+                    type = EditType.INPUT,
+                    inputType = @InputType,
+                    search = @Search(vague = true)
+            )
+    )
+    private String brand;
+
     @ManyToOne
     @EruptField(
             views = @View(
@@ -99,32 +125,6 @@ public class CommodityList extends HyperModel {
             )
     )
     private Store store;
-
-    @EruptField(
-            views = @View(
-                    title = "品牌", sortable = true
-            ),
-            edit = @Edit(
-                    title = "品牌",
-                    type = EditType.INPUT,
-                    inputType = @InputType,
-                    search = @Search(vague = true)
-            )
-    )
-    private String brand;
-
-    @EruptField(
-            views = @View(
-                    title = "商品名称", sortable = true
-            ),
-            edit = @Edit(
-                    title = "商品名称",
-                    type = EditType.INPUT, notNull = true,
-                    inputType = @InputType,
-                    search = @Search(vague = true)
-            )
-    )
-    private String commodityName;
 
     @EruptField(
             views = @View(

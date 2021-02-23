@@ -79,6 +79,31 @@ public class ESL extends HyperModel {
     @ManyToOne
     @EruptField(
             views = @View(
+                    title = "模板选择", sortable = true, column = "templateName"
+            ),
+            edit = @Edit(
+                    title = "模板选择",
+                    type = EditType.REFERENCE_TABLE,
+                    desc = "请选择匹配所选价签型号的模板",
+                    referenceTableType = @ReferenceTableType(label = "templateName"),
+                    search = @Search(vague = true)
+            )
+    )
+    private Template chosenTemplate;
+
+    /**
+     * 分割线
+     * 该字段不需要持久化，所以使用Transient注解修饰
+     */
+    @Transient
+    @EruptField(
+            edit = @Edit(title = "可选绑定的门店或商品", type = EditType.DIVIDE)
+    )
+    private String divide;
+
+    @ManyToOne
+    @EruptField(
+            views = @View(
                     title = "门店绑定", sortable = true, column = "storeName"
             ),
             edit = @Edit(
@@ -99,25 +124,12 @@ public class ESL extends HyperModel {
                     title = "商品绑定",
                     type = EditType.REFERENCE_TABLE,
                     referenceTableType = @ReferenceTableType(label = "commodityName"),
+                    desc = "请留意商品所属门店",
                     search = @Search(vague = true)
             )
     )
     private CommodityList boundCommodity;
 
-    @ManyToOne
-    @EruptField(
-            views = @View(
-                    title = "模板选择", sortable = true, column = "templateName"
-            ),
-            edit = @Edit(
-                    title = "模板选择",
-                    type = EditType.REFERENCE_TABLE,
-                    desc = "请选择匹配所选价签型号的模板",
-                    referenceTableType = @ReferenceTableType(label = "templateName"),
-                    search = @Search(vague = true)
-            )
-    )
-    private Template chosenTemplate;
 
     @Lob
     @EruptField(

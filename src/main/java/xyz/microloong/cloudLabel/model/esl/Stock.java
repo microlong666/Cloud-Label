@@ -46,6 +46,7 @@ public class Stock extends HyperModel {
             ))
     private Category category;
 
+    @ManyToOne
     @EruptField(
             views = @View(
                     title = "商品名称", sortable = true, column = "commodityName"
@@ -54,11 +55,11 @@ public class Stock extends HyperModel {
                     title = "商品名称",
                     type = EditType.REFERENCE_TABLE, notNull = true,
                     referenceTableType = @ReferenceTableType(label = "commodityName"),
+                    desc = "请留意商品所属门店",
                     search = @Search(vague = true)
             )
     )
-    private @ManyToOne
-    CommodityList commodityName;
+    private CommodityList commodityName;
 
     @EruptField(
             views = @View(

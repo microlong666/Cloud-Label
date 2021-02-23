@@ -2,6 +2,7 @@ package xyz.microloong.cloudLabel.service;
 
 import org.springframework.stereotype.Service;
 import xyz.erupt.annotation.fun.DataProxy;
+import xyz.erupt.core.exception.EruptWebApiRuntimeException;
 import xyz.microloong.cloudLabel.model.esl.ESL;
 import xyz.microloong.cloudLabel.util.RandomMac;
 
@@ -29,6 +30,9 @@ public class ESLService implements DataProxy<ESL> {
             esl.setRssi(RSSI[(int) (Math.random() * 3)]);
             esl.setSoc((int) (Math.random() * 101) + "%");
         }
+        if (esl.getBoundCommodity() != null && esl.getBoundStore() != null) {
+            throw new EruptWebApiRuntimeException("仅可绑定门店或商品其中之一");
+        }
     }
 
     @Override
@@ -43,6 +47,9 @@ public class ESLService implements DataProxy<ESL> {
             if (esl.getSoc() == null) {
                 esl.setSoc((int) (Math.random() * 101) + "%");
             }
+        }
+        if (esl.getBoundCommodity() != null && esl.getBoundStore() != null) {
+            throw new EruptWebApiRuntimeException("仅可绑定门店或商品其中之一");
         }
     }
 }
