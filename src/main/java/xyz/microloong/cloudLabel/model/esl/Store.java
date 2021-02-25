@@ -1,5 +1,6 @@
 package xyz.microloong.cloudLabel.model.esl;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import xyz.erupt.annotation.Erupt;
@@ -26,6 +27,7 @@ import javax.persistence.Table;
 @Table(name = "store")
 @Getter
 @Setter
+@EqualsAndHashCode(callSuper = true)
 @Entity
 public class Store extends BaseModel {
 

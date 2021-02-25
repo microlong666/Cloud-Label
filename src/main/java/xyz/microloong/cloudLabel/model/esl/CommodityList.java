@@ -18,6 +18,7 @@ import xyz.microloong.cloudLabel.service.CommodityService;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author MicroLOONG
@@ -113,18 +114,23 @@ public class CommodityList extends HyperModel {
     )
     private Category category;
 
-    @ManyToOne
+
+    @ManyToMany
+    @JoinTable(
+            name = "commodity_store",
+            joinColumns = @JoinColumn(name = "commodity_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "store_id", referencedColumnName = "id")
+    )
     @EruptField(
             views = @View(
-                    title = "门店", sortable = true, column = "storeName"
+                    title = "关联门店", sortable = true
             ),
             edit = @Edit(
-                    title = "门店",
-                    type = EditType.REFERENCE_TABLE, notNull = true,
-                    referenceTableType = @ReferenceTableType(label = "storeName")
+                    title = "关联门店",
+                    type = EditType.TAB_TABLE_REFER, notNull = true
             )
     )
-    private Store store;
+    private Set<Store> store;
 
     @EruptField(
             views = @View(

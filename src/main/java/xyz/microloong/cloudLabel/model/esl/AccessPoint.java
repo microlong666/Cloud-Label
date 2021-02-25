@@ -99,7 +99,6 @@ public class AccessPoint extends HyperModel {
                     type = EditType.HIDDEN
             )
     )
-    @Column(columnDefinition = "int default 0")
     private Integer eslNum;
 
     @ManyToOne

@@ -12,7 +12,7 @@ import xyz.erupt.annotation.sub_field.sub_edit.*;
 import xyz.erupt.upms.handler.DictChoiceFetchHandler;
 import xyz.erupt.upms.model.EruptUser;
 import xyz.erupt.upms.model.base.HyperModel;
-import xyz.microloong.cloudLabel.service.ESLService;
+import xyz.microloong.cloudLabel.service.EslService;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,14 +24,14 @@ import java.util.Date;
 @Erupt(
         name = "价签管理",
         power = @Power(export = true),
-        dataProxy = {ESLService.class},
+        dataProxy = {EslService.class},
         orderBy = "updateTime desc"
 )
 @Table(name = "esl")
 @Getter
 @Setter
 @Entity
-public class ESL extends HyperModel {
+public class Esl extends HyperModel {
 
     @EruptField(
             views = @View(
@@ -85,35 +85,25 @@ public class ESL extends HyperModel {
                     title = "模板选择",
                     type = EditType.REFERENCE_TABLE,
                     desc = "请选择匹配所选价签型号的模板",
-                    referenceTableType = @ReferenceTableType(label = "templateName"),
-                    search = @Search(vague = true)
+                    referenceTableType = @ReferenceTableType(label = "templateName")
             )
     )
     private Template chosenTemplate;
 
-    /**
-     * 分割线
-     * 该字段不需要持久化，所以使用Transient注解修饰
-     */
-    @Transient
-    @EruptField(
-            edit = @Edit(title = "可选绑定的门店或商品", type = EditType.DIVIDE)
-    )
-    private String divide;
-
     @ManyToOne
+    @JoinColumn(name = "connected_ap_id")
     @EruptField(
             views = @View(
-                    title = "门店绑定", sortable = true, column = "storeName"
+                    title = "连接基站", sortable = true, column = "apName"
             ),
             edit = @Edit(
-                    title = "门店绑定",
-                    type = EditType.REFERENCE_TABLE,
-                    referenceTableType = @ReferenceTableType(label = "storeName"),
+                    title = "连接基站",
+                    type = EditType.REFERENCE_TABLE, notNull = true,
+                    referenceTableType = @ReferenceTableType(label = "apName"),
                     search = @Search(vague = true)
             )
     )
-    private Store boundStore;
+    private AccessPoint connectedAp;
 
     @ManyToOne
     @EruptField(
@@ -124,12 +114,11 @@ public class ESL extends HyperModel {
                     title = "商品绑定",
                     type = EditType.REFERENCE_TABLE,
                     referenceTableType = @ReferenceTableType(label = "commodityName"),
-                    desc = "请留意商品所属门店",
+                    desc = "商品关联的门店须与绑定的基站所在门店相匹配",
                     search = @Search(vague = true)
             )
     )
     private CommodityList boundCommodity;
-
 
     @Lob
     @EruptField(
@@ -144,7 +133,6 @@ public class ESL extends HyperModel {
             )
     )
     private String push;
-
 
     @EruptField(
             views = @View(

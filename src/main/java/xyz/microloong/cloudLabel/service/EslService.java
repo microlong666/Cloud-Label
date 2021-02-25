@@ -2,19 +2,18 @@ package xyz.microloong.cloudLabel.service;
 
 import org.springframework.stereotype.Service;
 import xyz.erupt.annotation.fun.DataProxy;
-import xyz.erupt.core.exception.EruptWebApiRuntimeException;
-import xyz.microloong.cloudLabel.model.esl.ESL;
+import xyz.microloong.cloudLabel.model.esl.Esl;
 import xyz.microloong.cloudLabel.util.RandomMac;
 
 
 /**
- * ESL 操作行为代理
+ * Esl 操作行为代理
  *
  * @author MicroLOONG
  * @date 2021-2-21
  */
 @Service
-public class ESLService implements DataProxy<ESL> {
+public class EslService implements DataProxy<Esl> {
 
     /**
      * 仅作演示用途
@@ -24,19 +23,16 @@ public class ESLService implements DataProxy<ESL> {
     RandomMac mac = new RandomMac();
 
     @Override
-    public void afterAdd(ESL esl) {
+    public void afterAdd(Esl esl) {
         if (esl.getStatus()) {
             esl.setMacAddress(mac.randomMac());
             esl.setRssi(RSSI[(int) (Math.random() * 3)]);
             esl.setSoc((int) (Math.random() * 101) + "%");
         }
-        if (esl.getBoundCommodity() != null && esl.getBoundStore() != null) {
-            throw new EruptWebApiRuntimeException("仅可绑定门店或商品其中之一");
-        }
     }
 
     @Override
-    public void afterUpdate(ESL esl) {
+    public void afterUpdate(Esl esl) {
         if (esl.getStatus()) {
             if (esl.getMacAddress() == null) {
                 esl.setMacAddress(mac.randomMac());
@@ -47,9 +43,6 @@ public class ESLService implements DataProxy<ESL> {
             if (esl.getSoc() == null) {
                 esl.setSoc((int) (Math.random() * 101) + "%");
             }
-        }
-        if (esl.getBoundCommodity() != null && esl.getBoundStore() != null) {
-            throw new EruptWebApiRuntimeException("仅可绑定门店或商品其中之一");
         }
     }
 }

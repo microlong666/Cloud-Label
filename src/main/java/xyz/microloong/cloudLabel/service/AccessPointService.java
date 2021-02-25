@@ -1,7 +1,9 @@
 package xyz.microloong.cloudLabel.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.erupt.annotation.fun.DataProxy;
+import xyz.microloong.cloudLabel.dao.EslRepository;
 import xyz.microloong.cloudLabel.model.esl.AccessPoint;
 import xyz.microloong.cloudLabel.util.RandomMac;
 
@@ -14,6 +16,9 @@ import xyz.microloong.cloudLabel.util.RandomMac;
 @Service
 public class AccessPointService implements DataProxy<AccessPoint> {
 
+    @Autowired
+    EslRepository esl;
+
     RandomMac mac = new RandomMac();
 
     @Override
@@ -21,9 +26,7 @@ public class AccessPointService implements DataProxy<AccessPoint> {
         if (accessPoint.getStatus()) {
             accessPoint.setMacAddress(mac.randomMac());
         }
-        if (accessPoint.getEslNum() == null) {
-            accessPoint.setEslNum(0);
-        }
+        accessPoint.setEslNum(esl.connectedAp(accessPoint.getId()));
     }
 
     @Override
@@ -31,5 +34,6 @@ public class AccessPointService implements DataProxy<AccessPoint> {
         if (accessPoint.getStatus() && accessPoint.getMacAddress() == null) {
             accessPoint.setMacAddress(mac.randomMac());
         }
+        accessPoint.setEslNum(esl.connectedAp(accessPoint.getId()));
     }
 }
