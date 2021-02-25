@@ -5,8 +5,8 @@
 
 <p align="center">
     <a href="https://www.erupt.xyz" target="_blank"><img src="https://img.shields.io/badge/Erupt-Framework-brightgreen" alt="Erupt Framework"></a>
-    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.6.4-blue" alt="Erupt Version"></a>
-    <a href="https://github.com/alibaba/dragonwell11"><img src="https://img.shields.io/badge/JDK-11+-red.svg" alt="jdk 11+"></a>
+    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.6.5-blue" alt="Erupt Version"></a>
+    <a><img src="https://img.shields.io/badge/JDK-1.8+-red.svg" alt="jdk 1.8+"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/github/license/microlong666/cloud-label" alt="license Apache-2.0"></a>
 
 </p>
@@ -25,6 +25,12 @@
 
 只完成 CRUD 部分，未编写接口，仅供学习
 
+## 截图 | Screenshots
+
+![login-page](preview/1.png)
+
+![home-page](preview/2.png)
+
 ## 技术栈 | Tech Stack
 
 - [Erupt Framework 通用后台管理框架](https://www.erupt.xyz)
@@ -37,8 +43,6 @@
 
 - [NG-ALAIN](https://ng-alain.com/)
 
-- [Alibaba Dragonwell JDK 11](https://github.com/alibaba/dragonwell11)
-
 - MySQL 8.0
 
 - Redis 6.0
@@ -49,7 +53,7 @@
 
 ## 使用方法 | Usage
 
-> 推荐使用 JDK 11 和 MySQL 8.0+ 运行本项目，必须 JDK 8+
+> 推荐使用 MySQL 8.0+ 运行本项目，必须 JDK 8+
 
 1. 下载代码，或者执行：
 
@@ -112,8 +116,8 @@ erupt:
   csrfInspect: true
   # 是否开启redis方式存储session，默认false，开启后需在配置文件中添加redis配置
   redisSession: false
-  # 附件上传存储路径, 默认路径为：/opt/erupt-attachment
-  uploadPath: D:\
+  # 附件上传存储路径, 默认路径为：/opt/cloud-label
+  uploadPath: D:\\
   # 是否保留上传文件原始名称
   keepUploadFileName: false
   # 登录session时长（redisSession为true时有效）
