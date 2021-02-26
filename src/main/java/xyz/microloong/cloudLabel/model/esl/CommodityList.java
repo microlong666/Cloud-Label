@@ -123,7 +123,7 @@ public class CommodityList extends HyperModel {
     )
     @EruptField(
             views = @View(
-                    title = "关联门店", sortable = true
+                    title = "关联门店"
             ),
             edit = @Edit(
                     title = "关联门店",
