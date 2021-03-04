@@ -75,7 +75,7 @@
 git clone https://github.com/microlong666/Cloud-Label.git
 ```
 
-2. 数据库中建立 `cloud_label` 库。
+2. 数据库中建立 `cloud_label` 库，可按需求启用 Redis
 
 3. 创建 `application-dev.yml`，或在 `application.yml` 中补充：
 
@@ -148,11 +148,45 @@ erupt:
 
 6. 打开浏览器，[http://localhost:8888](http://localhost:8888)，初始用户名和密码均为 `erupt`
 
+7. 如需使用 Ant-Design-Vue 或 Element-UI-Vue 模板，请在 `pom.xml` 添加下列依赖：
+
+``` xml
+<!--Ant-Design-Vue-->
+<dependency>
+  <groupId>xyz.erupt</groupId>
+  <artifactId>erupt-tpl-ui.ant-design</artifactId>
+  <version>${erupt.version}</version>
+</dependency>
+
+<!--Element-UI-Vue-->
+<dependency>
+  <groupId>xyz.erupt</groupId>
+  <artifactId>erupt-tpl-ui.element-ui</artifactId>
+  <version>${erupt.version}</version>
+</dependency>
+```
+
 ## 部署方法 | Deploy
 
 - Maven 打包成 `jar` 直接运行
 
 - 提供 `Dockerfile` 文件，支持 Docker 远程部署。
+
+## 版本说明 | Version
+
+**1.0**
+
+- 提升用户体验
+
+- 修改关系逻辑
+
+- 修复字段启用排序引发的错误
+
+- 附加 sql 脚本，初始化时补全菜单项
+
+- Erupt Framework 更新到 1.6.7
+
+- 将表格项的删除操作替换为逻辑删除
 
 ## 已知问题 | Known issues
 
