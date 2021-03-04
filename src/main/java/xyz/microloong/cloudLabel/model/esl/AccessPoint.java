@@ -2,8 +2,10 @@ package xyz.microloong.cloudLabel.model.esl;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Filter;
 import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
@@ -30,8 +32,10 @@ import java.util.Date;
         name = "基站管理",
         power = @Power(export = true),
         dataProxy = {AccessPointService.class},
+        filter = @Filter("AccessPoint.isDeleted = false"),
         orderBy = "updateTime desc"
 )
+@SQLDelete(sql = "update ap set is_deleted = 1 where id = ?")
 @Table(name = "ap")
 @Getter
 @Setter
@@ -140,5 +144,7 @@ public class AccessPoint extends HyperModel {
             )
     )
     private Date updateTime;
+
+    private Boolean isDeleted = false;
 
 }

@@ -2,8 +2,10 @@ package xyz.microloong.cloudLabel.model.esl;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Filter;
 import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
@@ -25,8 +27,10 @@ import java.util.Date;
         name = "价签管理",
         power = @Power(export = true),
         dataProxy = {EslService.class},
+        filter = @Filter("Esl.isDeleted = false"),
         orderBy = "updateTime desc"
 )
+@SQLDelete(sql = "update esl set is_deleted = 1 where id = ?")
 @Table(name = "esl")
 @Getter
 @Setter
@@ -192,5 +196,7 @@ public class Esl extends HyperModel {
             )
     )
     private Date updateTime;
+
+    private Boolean isDeleted = false;
 
 }

@@ -3,8 +3,10 @@ package xyz.microloong.cloudLabel.model.esl;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Filter;
 import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
@@ -22,8 +24,10 @@ import javax.persistence.Table;
  */
 @Erupt(
         name = "门店管理",
-        power = @Power(importable = true, export = true)
+        power = @Power(importable = true, export = true),
+        filter = @Filter("Store.isDeleted = false")
 )
+@SQLDelete(sql = "update store set is_deleted = 1 where id = ?")
 @Table(name = "store")
 @Getter
 @Setter
@@ -77,5 +81,7 @@ public class Store extends BaseModel {
             )
     )
     private String tel;
+
+    private Boolean isDeleted = false;
 
 }

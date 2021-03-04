@@ -2,8 +2,10 @@ package xyz.microloong.cloudLabel.model.esl;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Filter;
 import xyz.erupt.annotation.sub_erupt.LinkTree;
 import xyz.erupt.annotation.sub_erupt.Power;
 import xyz.erupt.annotation.sub_field.Edit;
@@ -29,8 +31,10 @@ import java.util.Set;
         linkTree = @LinkTree(field = "category"),
         power = @Power(export = true),
         dataProxy = {CommodityService.class},
+        filter = @Filter("CommodityList.isDeleted = false"),
         orderBy = "updateTime desc"
 )
+@SQLDelete(sql = "update commodity set is_deleted = 1 where id = ?")
 @Table(name = "commodity")
 @Getter
 @Setter
@@ -57,7 +61,7 @@ public class CommodityList extends HyperModel {
             edit = @Edit(
                     title = "促销情况",
                     type = EditType.BOOLEAN, notNull = true,
-                    boolType = @BoolType(trueText = "促销", falseText = "正常", defaultValue = false),
+                    boolType = @BoolType(trueText = "促销", falseText = "正常"),
                     search = @Search(vague = true)
             )
     )
@@ -352,5 +356,7 @@ public class CommodityList extends HyperModel {
     )
     private @Lob
     String remark;
+
+    private Boolean isDeleted = false;
 
 }

@@ -2,8 +2,10 @@ package xyz.microloong.cloudLabel.model.esl;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Filter;
 import xyz.erupt.annotation.sub_erupt.Tree;
 import xyz.erupt.annotation.sub_field.Edit;
 import xyz.erupt.annotation.sub_field.EditType;
@@ -24,8 +26,10 @@ import javax.persistence.Table;
 @Erupt(
         name = "商品分类",
         orderBy = "Category.sort",
-        tree = @Tree(pid = "parent.id")
+        tree = @Tree(pid = "parent.id"),
+        filter = @Filter("Category.isDeleted = false")
 )
+@SQLDelete(sql = "update category set is_deleted = 1 where id = ?")
 @Table(name = "category")
 @Getter
 @Setter
@@ -63,5 +67,7 @@ public class Category extends BaseModel {
             )
     )
     private Category parent;
+
+    private Boolean isDeleted = false;
 
 }

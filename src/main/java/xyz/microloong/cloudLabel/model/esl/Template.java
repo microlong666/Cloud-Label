@@ -2,8 +2,10 @@ package xyz.microloong.cloudLabel.model.esl;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
 import xyz.erupt.annotation.Erupt;
 import xyz.erupt.annotation.EruptField;
+import xyz.erupt.annotation.sub_erupt.Filter;
 import xyz.erupt.annotation.sub_erupt.RowOperation;
 import xyz.erupt.annotation.sub_erupt.Tpl;
 import xyz.erupt.annotation.sub_field.Edit;
@@ -26,6 +28,7 @@ import java.util.Date;
  */
 @Erupt(
         name = "模板管理",
+        filter = @Filter("Template.isDeleted = false"),
         rowOperation = {
                 @RowOperation(
                         code = "CUSTOM",
@@ -39,6 +42,7 @@ import java.util.Date;
                 )
         }
 )
+@SQLDelete(sql = "update template set is_deleted = 1 where id = ?")
 @Table(name = "template")
 @Getter
 @Setter
@@ -139,5 +143,7 @@ public class Template extends HyperModel {
             )
     )
     private Date updateTime;
+
+    private Boolean isDeleted = false;
 
 }
