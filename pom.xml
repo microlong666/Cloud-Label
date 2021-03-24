@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.4.1</spring-boot.version>
-        <erupt.version>1.6.7</erupt.version>
+        <erupt.version>1.6.8</erupt.version>
     </properties>
 
     <dependencies>

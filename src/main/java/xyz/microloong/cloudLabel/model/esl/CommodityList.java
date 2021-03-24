@@ -13,8 +13,7 @@ import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.ViewType;
 import xyz.erupt.annotation.sub_field.sub_edit.*;
-import xyz.erupt.upms.model.EruptUser;
-import xyz.erupt.upms.model.base.HyperModel;
+import xyz.erupt.upms.helper.HyperModelVo;
 import xyz.microloong.cloudLabel.service.CommodityService;
 
 import javax.persistence.*;
@@ -39,7 +38,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class CommodityList extends HyperModel {
+public class CommodityList extends HyperModelVo {
 
     @EruptField(
             views = @View(
@@ -318,32 +317,6 @@ public class CommodityList extends HyperModel {
             )
     )
     private Date saleEnd;
-
-    @EruptField(
-            views = @View(
-                    title = "创建人", sortable = true, column = "name"))
-    @ManyToOne
-    private EruptUser createUser;
-
-    @EruptField(
-            views = @View(
-                    title = "创建时间", sortable = true
-            )
-    )
-    private Date createTime;
-
-    @EruptField(
-            views = @View(
-                    title = "修改人", sortable = true, column = "name"))
-    @ManyToOne
-    private EruptUser updateUser;
-
-    @EruptField(
-            views = @View(
-                    title = "更新时间", sortable = true
-            )
-    )
-    private Date updateTime;
 
     @EruptField(
             views = @View(

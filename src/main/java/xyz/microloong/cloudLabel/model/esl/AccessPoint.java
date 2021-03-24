@@ -14,15 +14,13 @@ import xyz.erupt.annotation.sub_field.sub_edit.BoolType;
 import xyz.erupt.annotation.sub_field.sub_edit.InputType;
 import xyz.erupt.annotation.sub_field.sub_edit.ReferenceTableType;
 import xyz.erupt.annotation.sub_field.sub_edit.Search;
-import xyz.erupt.upms.model.EruptUser;
-import xyz.erupt.upms.model.base.HyperModel;
+import xyz.erupt.upms.helper.HyperModelVo;
 import xyz.microloong.cloudLabel.service.AccessPointService;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
  * @author MicroLOONG
@@ -40,7 +38,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class AccessPoint extends HyperModel {
+public class AccessPoint extends HyperModelVo {
 
     @EruptField(
             views = @View(
@@ -118,32 +116,6 @@ public class AccessPoint extends HyperModel {
             )
     )
     private Store boundStore;
-
-    @EruptField(
-            views = @View(
-                    title = "创建人", sortable = true, column = "name"))
-    @ManyToOne
-    private EruptUser createUser;
-
-    @EruptField(
-            views = @View(
-                    title = "创建时间", sortable = true
-            )
-    )
-    private Date createTime;
-
-    @EruptField(
-            views = @View(
-                    title = "修改人", sortable = true, column = "name"))
-    @ManyToOne
-    private EruptUser updateUser;
-
-    @EruptField(
-            views = @View(
-                    title = "更新时间", sortable = true
-            )
-    )
-    private Date updateTime;
 
     private Boolean isDeleted = false;
 
