@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>xyz.microloong</groupId>
     <artifactId>cloudLabel</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.2</version>
     <name>cloudLabel</name>
     <description>A Cloud Management Platform of Electronic Labels</description>
 
@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.4.1</spring-boot.version>
-        <erupt.version>1.6.8</erupt.version>
+        <erupt.version>1.6.9</erupt.version>
     </properties>
 
     <dependencies>
