@@ -119,11 +119,13 @@ server:
     includeException: true
     includeStacktrace: ALWAYS
     includeMessage: ALWAYS
-  port: 8888
+  port: 8080
 
 erupt-app:
   # 登录失败几次，需要验证码
   verifyCodeCount: 2
+  # 登录密码是否加密传输，特殊场景如：LADP登录可关闭该功能获取密码明文（1.6.8及以上版本支持）
+  pwdTransferEncrypt: true
 
 erupt:
   # 是否开启csrf防御
@@ -138,6 +140,14 @@ erupt:
   upms.expireTimeByLogin: 60
   # 是否记录操作日志，默认true，该功能开启后可在【系统管理 → 操作日志】中查看操作日志
   security.recordOperateLog: true
+  # 设置具体哪些包被jackson消息转化而不是gson
+  jacksonHttpMessageConvertersPackages:
+    - org.ssssssss
+
+magic-api:
+  web: /magic/web
+  # 接口配置文件存放路径
+  resource.location: D:/magic-script
 ```
 
 **请修改上述数据源配置**
