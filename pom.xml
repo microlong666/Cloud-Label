@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.4.1</spring-boot.version>
-        <erupt.version>1.6.9</erupt.version>
+        <erupt.version>1.6.14</erupt.version>
     </properties>
 
     <dependencies>
@@ -63,6 +63,13 @@
         <dependency>
             <groupId>xyz.erupt</groupId>
             <artifactId>erupt-monitor</artifactId>
+            <version>${erupt.version}</version>
+        </dependency>
+
+        <!--在线接口开发模块-->
+        <dependency>
+            <groupId>xyz.erupt</groupId>
+            <artifactId>erupt-magic-api</artifactId>
             <version>${erupt.version}</version>
         </dependency>
 

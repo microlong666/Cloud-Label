@@ -14,6 +14,8 @@ window.eruptSiteConfig = {
     logoPath: "erupt.svg",
     // logo文字
     logoText: "CloudLabel",
+    //是否展示版权信息
+    copyright: false,
     // 是否开启路由复用
     routerReuse: true,
     // 自定义导航栏按钮，配置后将会出现在页面右上角
