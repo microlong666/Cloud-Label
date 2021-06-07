@@ -19,9 +19,8 @@ import java.util.TimeZone;
  * @date 2021-2-10
  */
 @ComponentScan({"xyz.erupt", "xyz.microloong.cloudLabel"}) // ↓ xyz.erupt必须有
-@EntityScan({"xyz.erupt", "xyz.microloong.cloudLabel"})    // ↓ 如果包名com.example.demo有变化
-@EruptScan({"xyz.erupt", "xyz.microloong.cloudLabel"})     // → 要修改为变化后的包名
-
+@EntityScan
+@EruptScan
 @EnableJpaAuditing
 @SpringBootApplication
 public class CloudLabelApplication extends SpringBootServletInitializer {

@@ -110,3 +110,17 @@ window.onload = function () {
 // Run
 showTime();
 setBgGreet();
+
+// 用户名显示
+$.ajax({
+    type: "GET",
+    url: "/erupt-api/user",
+    headers: {
+        token: parent.getAppToken().token
+    },
+    success: function (result) {
+        if (result !== undefined || result !== "") {
+            $('#user').text(result)
+        }
+    }
+});

@@ -214,6 +214,12 @@ magic-api:
 
 - Erupt Framework 更新到 1.6.14
 
+**1.4**
+
+- 首页添加用户名问候
+
+- Erupt Framework 更新到 1.7.1，旧用户请参阅 [更新文档](https://www.yuque.com/erupts/erupt/dzp0mv)
+
 ## 已知问题 | Known issues
 
 - 夜间模式与路由复用冲突
