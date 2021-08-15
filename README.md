@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://www.erupt.xyz" target="_blank"><img src="https://img.shields.io/badge/Erupt-Framework-brightgreen" alt="Erupt Framework"></a>
-    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.7.1-blue" alt="Erupt Version"></a>
+    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.7.3-blue" alt="Erupt Version"></a>
     <a><img src="https://img.shields.io/badge/JDK-1.8+-red.svg" alt="jdk 1.8+"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/github/license/microlong666/cloud-label" alt="license Apache-2.0"></a>
 
@@ -49,7 +49,7 @@
 
 - [Erupt Framework 通用后台管理框架](https://www.erupt.xyz)
 
-- Spring Boot 2.4.1
+- Spring Boot 2.4.5
 
 - Spring Data JPA
 
@@ -156,7 +156,7 @@ magic-api:
 
 5. 需要手动添加相关菜单项，提前导入项目根目录下的 `cloud_label.sql` 脚本
 
-6. 打开浏览器，[http://localhost:8888](http://localhost:8888)，初始用户名和密码均为 `erupt`
+6. 打开浏览器，[http://localhost:8080](http://localhost:8080)，初始用户名和密码均为 `erupt`
 
 7. 如需使用 Ant-Design-Vue 或 Element-UI-Vue 模板，请在 `pom.xml` 添加下列依赖：
 
@@ -219,6 +219,10 @@ magic-api:
 - 首页添加用户名问候
 
 - Erupt Framework 更新到 1.7.1，旧用户请参阅 [更新文档](https://www.yuque.com/erupts/erupt/dzp0mv)
+
+**1.5**
+
+- Erupt Framework 更新到 1.7.3
 
 ## 已知问题 | Known issues
 

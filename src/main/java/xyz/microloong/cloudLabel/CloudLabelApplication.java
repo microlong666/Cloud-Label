@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import xyz.erupt.core.annotation.EruptScan;
 
@@ -18,11 +17,10 @@ import java.util.TimeZone;
  * @author MicroLOONG
  * @date 2021-2-10
  */
-@ComponentScan({"xyz.erupt", "xyz.microloong.cloudLabel"}) // ↓ xyz.erupt必须有
+@SpringBootApplication
 @EntityScan
 @EruptScan
 @EnableJpaAuditing
-@SpringBootApplication
 public class CloudLabelApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

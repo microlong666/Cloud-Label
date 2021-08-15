@@ -1,5 +1,6 @@
 spring:
-  profiles:
-    # dev：开发环境 | prod：生产环境（可自行添加 test 环境）
-    # 请自行添加 application-dev.yml 和 application-prod.yml
-    active: dev
+  # dev：开发环境 | prod：生产环境（可自行添加 test 环境）
+  # 请自行添加 application-dev.yml 和 application-prod.yml
+  config:
+    activate:
+      on-profile: dev
