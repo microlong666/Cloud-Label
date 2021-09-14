@@ -14,7 +14,7 @@ import xyz.erupt.annotation.sub_field.sub_edit.BoolType;
 import xyz.erupt.annotation.sub_field.sub_edit.InputType;
 import xyz.erupt.annotation.sub_field.sub_edit.ReferenceTableType;
 import xyz.erupt.annotation.sub_field.sub_edit.Search;
-import xyz.erupt.upms.helper.HyperModelVo;
+import xyz.erupt.upms.model.base.HyperModel;
 import xyz.microloong.cloudLabel.service.AccessPointService;
 
 import javax.persistence.Column;
@@ -38,7 +38,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-public class AccessPoint extends HyperModelVo {
+public class AccessPoint extends HyperModel {
 
     @EruptField(
             views = @View(

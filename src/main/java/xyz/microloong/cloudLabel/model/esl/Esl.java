@@ -12,7 +12,7 @@ import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.sub_edit.*;
 import xyz.erupt.upms.handler.DictChoiceFetchHandler;
-import xyz.erupt.upms.helper.HyperModelVo;
+import xyz.erupt.upms.model.base.HyperModel;
 import xyz.microloong.cloudLabel.service.EslService;
 
 import javax.persistence.*;
@@ -33,7 +33,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class Esl extends HyperModelVo {
+public class Esl extends HyperModel {
 
     @EruptField(
             views = @View(

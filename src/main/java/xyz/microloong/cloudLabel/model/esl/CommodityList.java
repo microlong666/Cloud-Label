@@ -13,7 +13,7 @@ import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.ViewType;
 import xyz.erupt.annotation.sub_field.sub_edit.*;
-import xyz.erupt.upms.helper.HyperModelVo;
+import xyz.erupt.upms.model.base.HyperModel;
 import xyz.microloong.cloudLabel.service.CommodityService;
 
 import javax.persistence.*;
@@ -38,7 +38,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-public class CommodityList extends HyperModelVo {
+public class CommodityList extends HyperModel {
 
     @EruptField(
             views = @View(

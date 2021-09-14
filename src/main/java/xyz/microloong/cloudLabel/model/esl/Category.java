@@ -13,7 +13,7 @@ import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.sub_edit.AttachmentType;
 import xyz.erupt.annotation.sub_field.sub_edit.NumberType;
 import xyz.erupt.annotation.sub_field.sub_edit.ReferenceTreeType;
-import xyz.erupt.jpa.model.BaseModel;
+import xyz.erupt.upms.model.base.HyperModel;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -34,7 +34,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-public class Category extends BaseModel {
+public class Category extends HyperModel {
 
     @EruptField(
             views = @View(title = "类别图片"),

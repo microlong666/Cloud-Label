@@ -28,7 +28,8 @@ public class OperationHandlerImpl implements OperationHandler<Template, Void> {
      * @param param 注解回传参数
      */
     @Override
-    public void exec(List<Template> data, Void v, String[] param) {
+    public String exec(List<Template> data, Void v, String[] param) {
         //ToDo 自定义模板编辑逻辑
+        return null;
     }
 }

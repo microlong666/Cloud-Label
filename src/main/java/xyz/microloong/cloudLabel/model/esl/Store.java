@@ -13,7 +13,7 @@ import xyz.erupt.annotation.sub_field.EditType;
 import xyz.erupt.annotation.sub_field.View;
 import xyz.erupt.annotation.sub_field.sub_edit.InputType;
 import xyz.erupt.annotation.sub_field.sub_edit.Search;
-import xyz.erupt.jpa.model.BaseModel;
+import xyz.erupt.upms.model.base.HyperModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -33,7 +33,7 @@ import javax.persistence.Table;
 @Setter
 @EqualsAndHashCode(callSuper = true)
 @Entity
-public class Store extends BaseModel {
+public class Store extends HyperModel {
 
     @EruptField(
             views = @View(
