@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://www.erupt.xyz" target="_blank"><img src="https://img.shields.io/badge/Erupt-Framework-brightgreen" alt="Erupt Framework"></a>
-    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.8.3-blue" alt="Erupt Version"></a>
+    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.9.0-blue" alt="Erupt Version"></a>
     <a><img src="https://img.shields.io/badge/JDK-1.8+-red.svg" alt="jdk 1.8+"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/github/license/microlong666/cloud-label" alt="license Apache-2.0"></a>
 
@@ -49,7 +49,7 @@
 
 - [Erupt Framework 通用后台管理框架](https://www.erupt.xyz)
 
-- Spring Boot 2.4.5
+- Spring Boot 2.5.6
 
 - Spring Data JPA
 
@@ -227,6 +227,10 @@ magic-api:
 **1.6**
 
 - Erupt Framework 更新到 1.8.3
+
+**1.7**
+
+- Erupt Framework 更新到 1.9.0
 
 ## 已知问题 | Known issues
 
