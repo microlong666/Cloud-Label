@@ -5,8 +5,8 @@
 
 <p align="center">
     <a href="https://www.erupt.xyz" target="_blank"><img src="https://img.shields.io/badge/Erupt-Framework-brightgreen" alt="Erupt Framework"></a>
-    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.9.1-blue" alt="Erupt Version"></a>
-    <a><img src="https://img.shields.io/badge/JDK-11+-red.svg" alt="jdk 11+"></a>
+    <a href="https://github.com/erupts/erupt" target="_blank"><img src="https://img.shields.io/badge/EruptVersion-1.10.3-blue" alt="Erupt Version"></a>
+    <a><img src="https://img.shields.io/badge/JDK-17+-red.svg" alt="jdk 17+"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/github/license/microlong666/cloud-label" alt="license Apache-2.0"></a>
 
 </p>
@@ -235,6 +235,12 @@ magic-api:
 **1.8**
 
 - Erupt Framework 更新到 1.9.1
+
+**1.9**
+
+- Erupt Framework 更新到 1.10.3
+
+- JDK 支持到 JDK 17
 
 ## 已知问题 | Known issues
 
